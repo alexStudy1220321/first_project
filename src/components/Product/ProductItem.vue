@@ -8,7 +8,7 @@
       <span>{{ product.title }}</span>
       <span class="category">{{ product.category }}</span>
       <span>{{ product.price }}</span>
-      <span>{{ product.rating.rate }} / {{ product.rating.count }}</span>
+      <span>{{ product.rating.rate }} | {{ product.rating.count }}</span>
     </section>
   </li>
 </template>

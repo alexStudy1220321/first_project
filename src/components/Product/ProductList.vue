@@ -21,7 +21,13 @@
 
 <style scoped>
   .product-list {
-    width: 500px;
+    padding: 12px;
+    background-color: var(--color-background-mute);
+
+    overflow-y: scroll;
+
+    max-height: 680px;
+
     display: flex;
     flex-direction: column;
     gap: 24px;
