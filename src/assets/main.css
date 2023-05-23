@@ -16,3 +16,19 @@ body {
   justify-content: center;
   align-items: flex-start;
 }
+
+.w-full {
+  width: 100%;
+}
+
+.padding {
+  padding: 4px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+}

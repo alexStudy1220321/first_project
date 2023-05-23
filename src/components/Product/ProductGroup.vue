@@ -1,10 +1,8 @@
 <template>
   <section class="product-group">
-    <input
-      class="search-input"
-      type="text"
-      placeholder="Введите цену или название"
-      v-model="filterValue"
+    <product-manager
+      @product-create="addProduct"
+      v-model:filterValue="filterValue"
     />
 
     <h2
@@ -28,8 +26,10 @@
   import { getProducts } from "@/helpers/api";
 
   import ProductList from "@/components/Product/ProductList.vue";
+  import ProductManager from "@/components/Product/ProductManager/TheProductManager.vue";
 
   const products = ref([]);
+
   const filterValue = ref("");
   const filteredProducts = computed(() => {
     if (filterValue.value === "") {
@@ -50,6 +50,21 @@
     }
   });
 
+  function addProduct(values) {
+    products.value.unshift({
+      id: Math.floor(Math.random() * 10000000000000),
+      title: values.name,
+      price: values.price,
+      description: "",
+      category: values.category,
+      image: values.image,
+      rating: {
+        rate: 5,
+        count: 100,
+      },
+    });
+  }
+
   onBeforeMount(async () => {
     products.value = await getProducts();
   });
@@ -65,11 +80,5 @@
 
   .title {
     text-align: center;
-  }
-
-  .search-input {
-    text-align: center;
-    width: 100%;
-    padding: 4px;
   }
 </style>

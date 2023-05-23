@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-  import productGroup from "@/components/Product/productGroup.vue";
+  import productGroup from "@/components/Product/ProductGroup.vue";
 </script>
 
 <style scoped></style>
