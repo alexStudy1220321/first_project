@@ -129,7 +129,7 @@
   const onSubmit = handleSubmit((values) => {
     show.value = false;
     emit("orderSend", values);
-    // resetForm();
+    resetForm();
   });
 </script>
 
