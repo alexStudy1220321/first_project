@@ -35,8 +35,8 @@
         return "Данное поле обязательно к заполнению";
       }
 
-      if (value.search(/^([^\s]+)\s([^\s]+)\s([^\s]+)$/) === -1) {
-        return "Количество слов должно быть равно 3";
+      if (value.search(/^([^\s]+)\s([^\s]+)((\s([^\s]+)$)|$)/) === -1) {
+        return "Количество слов должно быть равно 2 или 3";
       }
 
       return true;
@@ -52,8 +52,12 @@
         return "Данное поле обязательно к заполнению";
       }
 
-      if (value.search("@") === -1) {
-        return "Поле должно содержать @";
+      if (
+        value.search(
+          /^[a-zA-Zа-яёА-ЯЁ0-9.]+@([a-zA-Zа-яёА-ЯЁ0-9]+\.|)[a-zA-Zа-яёА-ЯЁ0-9]+\.[a-zA-Zа-яёА-ЯЁ]+$/
+        ) === -1
+      ) {
+        return "Поле должно иметь формат name@[subdomain.](SDL).(TLD)";
       }
 
       return true;
@@ -101,7 +105,7 @@
 
   const inputs = reactive([
     {
-      placeholder: "Введите ФИО (через пробел)",
+      placeholder: "Введите ФИ или ФИО (через пробел)",
       type: "text",
       error: nameFieldError,
       value: nameField,
